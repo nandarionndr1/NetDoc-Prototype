@@ -1,0 +1,212 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'main.js' %}"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    </head>
+    
+<title> NetDoc  | Doc Bot</title>
+
+<!--------------------------------TO BE ADJUSTED LATER (tinatamad pa ako gumawa css file)--------------------------------------->
+<style>
+    
+    body{
+        
+        font-family: Roboto;
+        
+    }
+    
+    .nav-link {
+        
+        color: #fff;
+    }
+    
+    .nav-link:hover {
+        
+        color: #ECC3BF;
+    }
+    
+    .navbar-brand {
+        
+        color: #ECC3BF;
+    }
+    
+    .footer{
+         
+        padding: 1%;
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+        
+    }
+    
+    .navbar-expand-lg{
+        
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+    }
+    
+    .form-control{
+        
+        background-color: #ECC3BF;
+        
+    }
+    
+    .btn {
+        
+        background-color: #ECC3BF;
+        
+    }
+    
+    .btn: hover {
+        
+        background-color: #fff;
+        
+    }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    
+</style>
+<body>
+    
+    <!----------------------------------------------------------NAVIGATION BAR---------------------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <a class="navbar-brand" href="HomepageUser.html">NetDoc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="webinar.html">Webinar</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Staff.html">Staff</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="FAQ.html">FAQ</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Forum.html">Forum</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="NearestCenter.html">Nearest Center</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" style="color: #fff">Log-in</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" id = "signup" href="DocterBot.html">Doctor Bot</a>
+                </li>
+                
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!----------------------------------------------------------BODY---------------------------------------------------->
+
+    <div class="container">
+        <div class="col">
+            <div class="card">
+                <div class="card-block">
+                    <div class="chatlist">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="chat">
+                    <textarea class="form-control" style="resize:none;" rows="3" cols="70" placeholder="Send a message" id="message"></textarea>
+                    <button id = "send" onclick="sendChat()">Send</button>
+                </div>  
+            </div>
+        </div>
+    </div>
+    
+    <!----------------------------------------------------------FOOTER  ---------------------------------------------------->
+
+        
+    <footer class="footer">
+        <div class="container" style="color: #fff;">
+          NetDoc<br>
+          (c) 2017 
+        </div>
+    </footer>
+
+</body>
+    
+    
+</html>
+<script>
+    	function sendChat(){
+        var x = "<div class='row justify-content-end' style='margin-right: 0px'><div class='card'><div class='card-block'>";
+            x += "<img class='card-img-right float-right' src='https://mir-s3-cdn-cf.behance.net/projects/404/cf845727049321.557a248003e7b.png' width='108' height='119' > You: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <br>";
+            x += document.getElementById("message").value;
+            x += "</div></div></div>";
+            $( ".chatlist" ).append(x);
+        }
+    var i = 0;
+        setInterval(function(){
+            i += 1;
+            var message;
+            var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                message += "Doctor: <br> Use condoms. Use a condom correctly every time you have vaginal, anal, or oral sex.";
+                message += "</div></div></div>";
+                	if (i == 1){
+                        var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                            message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                            message += "Doctor: <br> Use condoms. Use a condom correctly every time you have vaginal, anal, or oral sex.";
+                            message += "</div></div></div>";
+                    }
+                    else if (i == 2){
+                        var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                            message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                            message += "Doctor: <br> Yes, a man goes through menopause, but to a different extent than a woman.";
+                            message += "</div></div></div>";
+                    }
+                    else if (i == 3){
+                        var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                            message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                            message += "Doctor: <br> A Pap test is recommended for women age 21 and older. The American College of Obstetrics and Gynecology recommends routine screening for women ages 21 to 65 years every two years.";
+                            message += "</div></div></div>";
+                    }
+                    else if (i == 4){
+                        var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                            message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                            message += "Doctor: <br> A woman normally produces a vaginal discharge that usually is described as clear or slightly cloudy, non-irritating, and odor-free.";
+                            message += "</div></div></div>";
+                    }
+                    else if (i == 5){
+                        var message = "<div class='row justify-content-start' style='margin-left: 0px'><div class='card'><div class='card-block'>";
+                            message += "<img class='float-left' src='http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png' width='108' height='119' >";
+                            message += "Doctor: <br> Hormone replacement therapy isn't right for everyone. Talk to your doctor to determine if hormone treatment is right for you.";
+                            message += "</div></div></div>";
+                    }
+    	$( ".chatlist" ).append(message);
+    	; }, 9000);
+</script>

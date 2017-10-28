@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <title>Log in</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+     
+</head>
+    
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="title-1"> <b>Login</b> </h4>
+          <h4 class="modal-title" id="title-2" style="display: none"><b>Sign Up</b></h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            
+            <div class="row" id="log" >
+                <div class="col-sm-2" align="right" style="background-color:white;">
+                    <h5>Username: </h5><br>
+                    <h5>Password:</h5><br>
+                </div>
+                <div class="col-sm-3" style="background-color:white;" >
+                    <input type="text" id="fNam" class="form-control"/><br>
+                    <input type="text" id="eAdd" class="form-control"/><br>
+                    <center>
+                    <button type="button" class="btn btn-success form-control" data-dismiss="modal" onClick="Post()">LOGIN</button>
+                    </center>
+                        <br><hr>
+                    <a href="#" onclick="gago();"> No account? Sign-in !</a>
+                </div>
+            </div>
+            
+            <div class="row" id="reg" style="display: none;" float="left">
+                
+                <div class="col-sm-2" align="right" style="background-color:white;">
+                    <h5>First Name: </h5><br>
+                    <h5>Last Name: </h5><br>
+                    <h5>Address:</h5><br>
+                    <h5>Email:</h5><br>
+                    <h5>Occupation:</h5><br>
+                    <h5>License:</h5><br>
+                    <h5>Organization:</h5><br>
+                    
+                    
+                </div>
+                <div class="col-sm-3" style="background-color:white;">
+                    <input type="text" id="fNam" class="form-control"/><br>
+                    <input type="text" id="eAdd" class="form-control"/><br>
+                    <input type="text" id="cNum" class="form-control"/><br>
+                    <input type="text" id="fNam" class="form-control"/><br>
+                    <input type="text" id="eAdd" class="form-control"/><br>
+                    <input type="text" id="cNum" class="form-control"/><br>
+                    <input type="text" id="fNam" class="form-control"/><br>
+                    <label><input type="checkbox" /> Agree to terms</label>
+                    <center>
+                        <button type="button" class="btn btn-success form-control" data-dismiss="modal" onClick="Post()">REGISTER</button>
+                    </center>
+                </div>
+
+            </div>
+            
+        </div>  
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<body>
+    
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>    
+<!-- Use any element to open/show the overlay navigation menu -->
+</body>
+</html>
+
+<script type="text/javascript">
+    function gago(){
+            console.log("gago");
+            $('#reg').fadeIn();
+            $('#log').remove();
+    }
+</script>

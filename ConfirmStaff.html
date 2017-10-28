@@ -1,0 +1,190 @@
+<html lang="en">
+<head>
+    <title>Confirm Staff</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+
+    h3{
+        color: darkred;
+        display: inline;
+    }
+    h4{
+        color: darkred;
+    }
+    .yellow {
+    color: limegreen;
+    }
+    <!--
+      <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 100vh;
+            }
+
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+          background-color: #f1f1f1;
+          height: 100%;
+          width: auto;
+        }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+          .row.content {height: auto;}
+        }
+            .nav-link {
+        
+        color: #fff;
+    }
+    
+    .nav-link:hover {
+        
+        color: #ECC3BF;
+    }
+    
+    .navbar-brand {
+        
+        color: #ECC3BF;
+    }
+    
+    .footer{
+         
+        padding: 1%;
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+        
+    }
+    
+    .navbar-expand-lg{
+        
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+    }
+    
+    
+    
+    #quest {
+        
+        background-color: white;
+        
+    }
+    
+    
+    .view section.cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+        padding: 0;
+    }
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    
+</style>
+<body>
+    
+    <!----------------------------------------------------------NAVIGATION BAR---------------------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <a class="navbar-brand" href="AdminHomepage.html">NetDoc</a>
+        
+
+        
+    </nav>
+
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-12">
+            <center><h2>Active Accounts <span class="glyphicon glyphicon-asterisk yellow"></span></h2></center>
+       
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well">
+                        <center><h2>Members For Confirmation</h2></center><hr>
+                            <table class="table table-hover" id="memberConf">
+
+                                    <tr>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Occupation</th>
+                                        <th>Organization</th>
+                                        <th>STATUS</th>
+                                    </tr>
+
+                                <tr id="staff-log1">
+                                    <td>Mark</td>
+                                    <td>Barq</td>
+                                    <td>Wew St. 123, Ayala, Manila</td>
+                                    <td>Juday@gmail.om</td>
+                                    <td>Health Worker</td>
+                                    <td>Aids Society of PH</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success"
+                                                onclick="remove('staff-log1');">
+                                            <span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                        <button type="button" class="btn btn-danger"
+                                                onclick="remove('staff-log1');">
+                                            <span class="glyphicon glyphicon-floppy-remove"></span></button>
+
+                                    </td>
+                                </tr>
+                                <tr id="staff-log2">
+                                    <td>Kayle</td>
+                                    <td>Tiu</td>
+                                    <td>122 J. Ocampo St., Ortigas Makati</td>
+                                    <td>Ocam@gmail.com</td>
+                                    <td>Doctor</td>
+                                    <td>University Of Normal Philippines</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success"
+                                                onclick="remove('staff-log2');">
+                                            <span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                        <button type="button" class="btn btn-danger"
+                                                onclick="remove('staff-log2');">
+                                            <span class="glyphicon glyphicon-floppy-remove"></span></button>
+
+                                    </td>
+                                </tr>
+                                <tr id="staff-log3">
+                                    <td>Jason</td>
+                                    <td>Deich</td>
+                                    <td>124 Nanddario Lane, Ortigas, Pasig</td>
+                                    <td>nndr@gmail.com</td>
+                                    <td>Social Worker</td>
+                                    <td>Gamolest</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success"
+                                                onclick="remove('staff-log3');">
+                                            <span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                        <button type="button" class="btn btn-danger"
+                                                onclick="remove('staff-log3');">
+                                            <span class="glyphicon glyphicon-floppy-remove"></span></button>
+
+                                    </td>
+                                </tr>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function remove(a){
+        $('#'+a).remove();
+    }
+</script>

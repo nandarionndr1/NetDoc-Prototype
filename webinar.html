@@ -1,0 +1,277 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'main.js' %}"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    </head>
+    
+<title> NetDoc  | Homepage</title>
+
+<!--------------------------------TO BE ADJUSTED LATER (tinatamad pa ako gumawa css file)--------------------------------------->
+<style>
+    
+    body{
+        
+        font-family: Roboto;
+        
+    }
+    
+    .nav-link {
+        
+        color: #fff;
+    }
+    
+    .nav-link:hover {
+        
+        color: #ECC3BF;
+    }
+    
+    .navbar-brand {
+        
+        color: #ECC3BF;
+    }
+    
+    .footer{
+         
+        padding: 1%;
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+        
+    }
+    
+    .navbar-expand-lg{
+        
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+    }
+    
+    .form-control{
+        
+        background-color: #ECC3BF;
+        
+    }
+    
+    .btn {
+        
+        background-color: #ECC3BF;
+        
+    }
+    
+    .btn: hover {
+        
+        background-color: #fff;
+        
+    }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    
+</style>
+<body>
+    
+    <!----------------------------------------------------------NAVIGATION BAR---------------------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <a class="navbar-brand" href="HomepageUser.html">NetDohc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Webinar <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Staff.html">Staff</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="FAQ.html">FAQ</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Forum.html">Forum</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="NearestCenter.html">Nearest Center</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html" style="color: #fff">Log-in</a>
+                </li>
+                
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+        <!---------------------------------------------------------- BODY ---------------------------------------------------->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 mx-auto">
+                <div class="row">
+                    <img src="http://www.apollonion.com/assets/image/imagesplashdoc/women-img0001.png" width="108" height="119">
+                </div>
+                <div class="row">
+                    BS Basic Medical Sciences in UP-Manila
+                </div>
+                <div class="row">
+                    Doctor of Medicine in UP-Manila
+                </div>
+                <div class="row">
+                    Diploma in Bioethics
+                </div>
+            </div>
+            <div class="col-xs-8 mx-auto">
+                <div class="mx-auto">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/rD0s0EUJIw4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-xs-2 mx-auto">
+                <div class="row" style="min-height: 400px">
+                    <div class="col" style=" overflow-y:scroll">
+                        <div class="chatlist" style="position:absolute">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="chat">
+                            <textarea class="form-control" style="resize:none;" rows="3" placeholder="Send a message" id="message"></textarea>
+                            <button id = "send" onclick="sendChat()">Send</button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+        <!----------------------------------------------------------FOOTER  ---------------------------------------------------->
+
+
+    <footer class="footer">
+        <div class="container" style="color: #fff;">
+          NetDoc<br>
+          (c) 2017 
+        </div>
+    </footer>
+</html>
+<script>
+	function sendChat(){
+        var d = new Date(); // for now
+        var hours = d.getHours();
+        var timestamp = "[" + hours + ":" + d.getMinutes() + ":" + d.getSeconds() + "]";
+        var x = timestamp;
+		x += "<font color='violet'> You: </font>";
+		x += document.getElementById("message").value;
+		x += "<br>";
+    	$( ".chatlist" ).append(x);
+	}
+    var i = 0;
+    setInterval(function(){
+        i += 1;
+    	var message;
+        var d = new Date(); // for now
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+        var timestamp = "[";
+        if (hours < 10){
+            timestamp += "0" + hours + ":";
+        }
+        else {
+            timestamp += hours + ":";
+        }
+        if (minutes < 10){
+            timestamp += "0" + minutes + ":";
+        }
+        else {
+            timestamp += minutes + ":";
+        }
+        if (seconds < 10){
+            timestamp += "0" + seconds + "]";
+        }
+        else {
+            timestamp += seconds + "]";
+        }
+        
+    	if (i == 1){
+    		message = timestamp + " <font color='green'>Anonymous Turtle:</font> How do you prevent HIV?<br>";
+    	}
+    	else if (i == 2){
+    		message = timestamp + " <font color='red'>Anonymous Panda:</font> Does a man go through menopause?<br>";
+    	}
+    	else if (i == 3){
+    		message = timestamp + " <font color='gray'>Anonymous Racoon:</font> How often should a woman get a pelvic exam and Pap test?<br>";
+    	}
+    	else if (i == 4){
+    		message = timestamp + " <font color='blue'>Anonymous Cat:</font> Is vaginal discharge normal?<br>";
+    	}
+    	else if (i == 5){
+    		message = timestamp + " <font color='orange'>Anonymous Dog:</font> Is hormone replacement therapy for menopause bad for women?<br>";
+    	}
+    	$( ".chatlist" ).append(message);
+    	; }, 5000);
+    var j = 0;
+    setInterval(function(){
+        j += 1;
+    	var message;
+        var d = new Date(); // for now
+        var hours = d.getHours();
+        var minutes = d.getMinutes();
+        var seconds = d.getSeconds();
+        var timestamp = "[";
+        if (hours < 10){
+            timestamp += "0" + hours + ":";
+        }
+        else {
+            timestamp += hours + ":";
+        }
+        if (minutes < 10){
+            timestamp += "0" + minutes + ":";
+        }
+        else {
+            timestamp += minutes + ":";
+        }
+        if (seconds < 10){
+            timestamp += "0" + seconds + "]";
+        }
+        else {
+            timestamp += seconds + "]";
+        }
+        
+    	if (i == 1){
+    		message = timestamp + " <font color='black'>Doctor:</font> Use condoms. Use a condom correctly every time you have vaginal, anal, or oral sex.<br>";
+    	}
+    	else if (i == 2){
+    		message = timestamp + " <font color='black'>Doctor:</font> Yes, a man goes through menopause, but to a different extent than a woman.<br>";
+    	}
+    	else if (i == 3){
+    		message = timestamp + " <font color='black'>Doctor:</font> A Pap test is recommended for women age 21 and older. The American College of Obstetrics and Gynecology recommends routine screening for women ages 21 to 65 years every two years. <br>";
+    	}
+    	else if (i == 4){
+    		message = timestamp + " <font color='black'>Doctor:</font> A woman normally produces a vaginal discharge that usually is described as clear or slightly cloudy, non-irritating, and odor-free<br>";
+    	}
+    	else if (i == 5){
+    		message = timestamp + " <font color='black'>Doctor:</font> Hormone replacement therapy isn't right for everyone. Talk to your doctor to determine if hormone treatment is right for you.<br>";
+    	}
+    	$( ".chatlist" ).append(message);
+    ; }, 8000);
+</script>

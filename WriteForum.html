@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+    <title>Write Forum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'main.js' %}"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Roboto;
+        }
+
+        .nav-link {
+            color: #fff;
+        }
+
+            .nav-link:hover {
+                color: #ECC3BF;
+            }
+
+        .navbar-brand {
+            color: #ECC3BF;
+        }
+
+        .footer {
+            padding: 1%;
+            background: linear-gradient(90deg, #CD0000, #FF3030);
+        }
+
+        .navbar-expand-lg {
+            background: linear-gradient(90deg, #CD0000, #FF3030);
+        }
+
+        #search {
+            background-color: #ECC3BF;
+        }
+
+        .btn {
+            background-color: #ECC3BF;
+        }
+
+            .btn: hover {
+                background-color: #fff;
+            }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+
+    <style>
+        .card-block {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <a class="navbar-brand" href="staffReply.html">NetDoc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="WriteForum.html">Write Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="HomepageUser.html">Log-out</a>
+                </li>
+                
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <br />
+
+    <h2>Write Forum</h2>
+    <br />
+
+    <form>
+        <div class="form-group col-md-10">
+            
+            <div class="row">
+                <div class="col-sm-3">
+                    <label>Input title:</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+                </div>
+                <div class="col-sm-3">
+                    <label>Upload photo:</label>
+                    <input type='file' name='artPhoto' id="fileSelect2" onchange="showArtImage(this);" />
+                </div>
+                <div class="col-sm-3">
+                    <img id="artImage" src="" alt="" style="max-width:300px; max-height:300px; min-width:0px; min-height=0px;" />
+                </div>
+            </div>
+            
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Input content:</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="10"></textarea>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-11"></div>
+                <div class="col-sm-1"><button type="submit" class="btn btn-primary">Submit</button></div>
+            </div>
+
+        </div>
+        
+    </form>
+
+
+    
+</body>
+</html>
+<script>
+    function showArtImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#artImage')
+                    .attr('src', e.target.result).style = "disptlay: inline;"
+                    ;
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

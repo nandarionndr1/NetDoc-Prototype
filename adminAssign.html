@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        const csrfToken = "{{ csrf_token }}";
+    </script>
+    <script src="{% static 'main.js' %}"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script scr="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script>
+        
+        <style>
+           
+
+.blk {
+    color:black;
+}            
+            
+button.accordion {
+    
+    font-family:Roboto;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right:10px;
+    margin-left:10px;
+    font-size: calc(10px + 1vw);
+    border-radius:15px 15px 15px 15px;
+    padding: 10px;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 90%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ccc;
+}
+
+button.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+        
+div.panel {
+    
+    font-family:Roboto;
+    font-size: calc(10px + 1vw);
+    
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    width:90%
+}     
+        </style>
+    </head>
+    
+    <title> NetDoc  | Admin Assign</title>
+
+<style>
+    
+    body{
+        
+        font-family: Roboto;
+        
+    }
+    
+    .nav-link {
+        
+        color: #fff;
+    }
+    
+    .nav-link:hover {
+        
+        color: #ECC3BF;
+    }
+    
+    .navbar-brand {
+        
+        color: #ECC3BF;
+    }
+    
+    .footer{
+         
+        padding: 1%;
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+        
+    }
+    
+    .navbar-expand-lg{
+        
+        background: linear-gradient(90deg, #CD0000, #FF3030);
+    }
+    
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 300px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    
+</style>
+<body>
+    
+        <!----------------------------------------------------------NAVIGATION BAR---------------------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+        <a class="navbar-brand" href="AdminHomepage.html">NetDoc</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="ConfirmStaff.html">Confirm Staff</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="adminAssign.html">Admin Assign</a>
+                </li>
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button id ="search" class="btn my-2 my-sm-0" type="submit"><a href="SearchResults.html">Search</a></button>
+            </form>
+        </div>
+    </nav>
+    
+    <body>
+        <datalist id="phoneNumbers">
+          <option value="+639174214842">
+          <option value="+639568673418">
+          <option value="+631231231232">
+          <option value="+638374294837">
+          <option value="+639563245332">
+        </datalist>
+        
+        <datalist id="timeReceived">
+          <option value="2017-01-05 01:12:16">
+          <option value="2017-02-10 01:32:19">
+          <option value="2017-03-15 08:45:49">
+          <option value="2017-04-20 10:53:32">
+          <option value="2017-05-30 12:28:51">
+        </datalist>
+        
+        <datalist id="messages">
+          <option value="How do you prevent HIV?">
+          <option value="Does a man go through menopause?">
+          <option value="How often should a woman get a pelvic exam and PAP test?">
+          <option value="Is vaginal discharge normal?">
+          <option value="Is hormone replacement therapy for menopause bad for women?">
+        </datalist>
+
+        <center>
+        <div id="msgContainer" class="well">
+            
+        </div>
+        </center>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Assign Staff</h4>
+      </div>
+      <div class="modal-body">
+          <label style="display:none" id="modalVal"></label>
+          <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Question Count</th>
+                <th>Name</th>
+                <th>Specialization</th>  
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">11</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Dr. Mark Santos</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Ob-gyn</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">1</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Nurse Jennifer Ibay</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Maternal</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">7</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Johnston Santos</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Reproductive</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">5</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Tommy Bota</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Sexual Health</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">0</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Kale Chu</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Sexual Health</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">12</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Juan Bungalon</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Ob-gyn</a></td>
+            </tr>
+            <tr>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">8</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">John Fred</a></td>
+                <td><a class="blk" onclick="modalAssign(document.getElementById('modalVal').innerHTML)" href="" data-dismiss="modal">Gynecologist</a></td>
+            </tr>
+        </tbody>
+    </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+        
+        
+    <script>
+        
+        var count = document.getElementById("phoneNumbers").options.length;
+        for(var x = 0; x < count; x++){
+            var html = "<div id='message" + x + "'>";
+            html += '<button class="accordion">' + document.getElementById("phoneNumbers").options[x].value + '</button>';
+            html += '<div style="text-align:left" class="panel">';
+            html += '<div style="float:left"><p>' + document.getElementById("messages").options[x].value + '</p>';
+            html += '<p style=""> Received: ' + document.getElementById("timeReceived").options[x].value + '</p></div>';
+            html += '<p style="float:right;margin-top:5px;"><button style="margin-right:5px;" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" value="' + x + '" onclick="showAssign(this.value)">Assign</button><button style="margin-right:5px;" class="btn btn-warning btn-lg" value="' + x + '" onclick="deleteNum(this.value)">Delete</button><button style="margin-right:5px;" class="btn btn-danger btn-lg" value="' + x + '" onclick="block(this.value)">Block</button></p>';
+            html += '</div></div>';
+            document.getElementById("msgContainer").innerHTML += html;
+        }
+        
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].onclick = function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight){
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          }
+        }
+        
+        function showAssign(num){
+            document.getElementById("modalVal").innerHTML = num;
+        }
+        
+        function deleteNum(num){
+            document.getElementById("message" + num).innerHTML = "";
+        }
+        
+        function block(num){
+            document.getElementById("message" + num).innerHTML = "";
+        }
+        
+        function modalAssign(num){
+            document.getElementById("message" + num).innerHTML = "";
+        }
+
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+        
+    </script>
+        
+    </body>
+</html>
